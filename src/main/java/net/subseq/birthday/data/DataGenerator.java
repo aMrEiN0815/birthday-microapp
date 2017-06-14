@@ -20,9 +20,11 @@ public class DataGenerator {
                     new Employee(
                             person.getFirstName(),
                             person.getLastName(),
-                            person.getDateOfBirth().toLocalDate()
+                            person.getDateOfBirth().toLocalDate(),
+                            person.getAge()
                     ));
         }
+        
         return employees;
     }
 

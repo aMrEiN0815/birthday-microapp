@@ -25,8 +25,18 @@
           "[Vorname], [Nachname] feiert seinen Geburtstag in [X] Tagen.
 -->
 
-<h1> ${filter_employees}/${max_employees} Mitarbeiter, die innerhalb von ${days} Tagen Geburtstag feiern:</h1>
-<p></p>
+<div style="background-color:white; color:grey;">
+	<h1> SUBSEQ.NET Mitarbeiter </h1>
+	<p> ${filter_employees} von ${max_employees} Mitarbeitern, die innerhalb von ${days} Tagen Geburtstag feiern.</ü>
+	<#assign aDateTime = .now>
+	<#assign aDate = aDateTime?date>
+	<p> STATS & PARAMS 
+	<br> Liste generiert: ${aDate}
+	<br> Highlighting: ${days_highlight} Tage</p>
+	<p> </p>
+</div>
+
+
 
 <table class="table table-striped">
 
@@ -34,16 +44,23 @@
     <tr>
       <th>Nachname</th>
       <th>Vorname</th>
-      <th>Geburtstage</th>
+      <th>Geburtstag</th>
+      <th>Alter</th>
     </tr>
   </thead>
-  
+ 
+
   <tbody >
 	  <#list employees as employee>
-	    <tr>
+	    <tr <#if employee.daysbetween <= days_highlight>
+	    	 class="table-danger">
+	    	 <#else>
+	    	 >
+	    	 </#if>
 			<td> ${employee.lastname} </td>
 			<td> ${employee.firstname} </td>
-			<td> ${employee.birthday} </td>
+			<td> ${employee.birthday[8..9]}.${employee.birthday[5..6]}.${employee.birthday[0..3]}</td>
+			<td> wird ${employee.age + 1} (in ${employee.daysbetween} Tagen)</td>					
 	    </tr>
 	  </#list>  
   </tbody>  
