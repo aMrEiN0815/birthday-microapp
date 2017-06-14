@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Kommende Geburtstage</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-    
 </head>
 <body>
 
@@ -25,37 +23,13 @@
           "[Vorname], [Nachname] feiert seinen Geburtstag in [X] Tagen.
 -->
 
-<h1> ${filter_employees}/${max_employees} Mitarbeiter, die innerhalb von ${days} Tagen Geburtstag feiern:</h1>
-<p></p>
+<h1>Alle Mitarbeiter</h1>
 
-<table class="table table-striped">
-
-  <thead>
-    <tr>
-      <th>Nachname</th>
-      <th>Vorname</th>
-      <th>Geburtstage</th>
-    </tr>
-  </thead>
-  
-  <tbody >
-	  <#list employees as employee>
-	    <tr>
-			<td> ${employee.lastname} </td>
-			<td> ${employee.firstname} </td>
-			<td> ${employee.birthday} </td>
-	    </tr>
-	  </#list>  
-  </tbody>  
- </table>
- 
-<#--
 <ul>
     <#list employees as employee>
-        <li>${employee.lastname}, ${employee.firstname}, ${employee.birthday}</li>
+        <li>${employee.lastname}, ${employee.firstname} (${employee.birthday})</li>
     </#list>
 </ul>
--->
 
 </body>
 </html>
